@@ -35,12 +35,33 @@
       <a href="http://wa.me/2348130248409" target="_blank" rel="noopener noreferrer">
          <i class="fa-brands fa-whatsapp"></i>
          <span>whatsapp</span>
+      </a>
 
-<a href="mailto:olayinks97@gmail.com" 
-   class="email-btn">
+      <a id="email-btn" class="email-btn" target="_blank" rel="noopener noreferrer">
   <i class="fa-solid fa-envelope"></i>
   <span>Email</span>
 </a>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const emailBtn = document.getElementById("email-btn");
+
+    // Simple mobile detection
+    const isMobile = /Mobi|Android|iPhone/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      // Mobile → let user choose (mailto opens chooser)
+      emailBtn.setAttribute("href", "mailto:olayinks97@gmail.com");
+      emailBtn.removeAttribute("target"); // remove target so it opens in email app
+    } else {
+      // Desktop → always Gmail compose
+      emailBtn.setAttribute("href", "https://mail.google.com/mail/?view=cm&fs=1&to=olayinks97@gmail.com");
+      emailBtn.setAttribute("target", "_blank");
+    }
+  });
+</script>
+
+
     </div>
   </nav>
 
@@ -360,6 +381,7 @@
 </body>
 
 </html>
+
 
 
 
