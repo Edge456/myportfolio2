@@ -106,10 +106,31 @@
       <p>Let us work together, share ideas or simply connect. I'd love to hear from you</p>
     </div>
 
-    <div class="email2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=olayinks97@gmail.com" class="email-btn">
+    <div class="email2">
+      <a id="email-btn" class="email-btn" target="_blank" rel="noopener noreferrer">
   <i class="fa-solid fa-envelope"></i>
   <span>Email</span>
 </a></div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const emailBtn = document.getElementById("email-btn");
+
+    // Simple mobile detection
+    const isMobile = /Mobi|Android|iPhone/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      // Mobile → let user choose (mailto opens chooser)
+      emailBtn.setAttribute("href", "mailto:olayinks97@gmail.com");
+      emailBtn.removeAttribute("target"); // remove target so it opens in email app
+    } else {
+      // Desktop → always Gmail compose
+      emailBtn.setAttribute("href", "https://mail.google.com/mail/?view=cm&fs=1&to=olayinks97@gmail.com");
+      emailBtn.setAttribute("target", "_blank");
+    }
+  });
+</script>
+
 
     <div class="footer3">
       <a href="http://instagram.com/Edge_456" target="_blank" rel="noopener noreferrer">
@@ -244,4 +265,5 @@ document.addEventListener("DOMContentLoaded", function () {
   
 
 </body>
+
 </html>
